@@ -1,5 +1,7 @@
 package pl.coderslab.charity.model;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -8,7 +10,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+
 @Entity
+@Getter @Setter @Builder
+@NoArgsConstructor @AllArgsConstructor
 public class Donation extends EntityBasic{
 
     private Integer quantity;
