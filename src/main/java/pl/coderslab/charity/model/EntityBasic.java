@@ -1,15 +1,22 @@
 package pl.coderslab.charity.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class EntityBasic {
+@MappedSuperclass
+@Getter @Setter
+@EqualsAndHashCode(of = "id")
+@SuperBuilder
+@NoArgsConstructor
+public abstract class EntityBasic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

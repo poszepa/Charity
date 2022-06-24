@@ -12,7 +12,7 @@ public class Donation extends EntityBasic{
 
     private Integer quantity;
 
-    @OneToMany
+    @OneToMany(mappedBy = "donation")
     private List<Category> categories;
 
     @ManyToOne
