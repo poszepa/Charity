@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,6 +21,7 @@ class HomeControllerTest {
 
     @Autowired private MockMvc mockMvc;
     @MockBean private InstitutionRepository institutionRepository;
+    @MockBean private DonationRepository donationRepository;
 
     @Test
     @DisplayName("Should prepare a view for home site")
@@ -29,6 +31,7 @@ class HomeControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("index"))
                 .andExpect(MockMvcResultMatchers.model().attribute("institutions", institutionRepository.findAll()))
+                .andExpect(MockMvcResultMatchers.model().attribute("quantity", donationRepository.sumQuantity()))
                 .andDo(MockMvcResultHandlers.print());
     }
 }
