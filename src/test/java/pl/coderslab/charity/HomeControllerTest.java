@@ -4,10 +4,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import pl.coderslab.charity.repository.InstitutionRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +19,7 @@ class HomeControllerTest {
 
 
     @Autowired private MockMvc mockMvc;
+    @MockBean private InstitutionRepository institutionRepository;
 
     @Test
     @DisplayName("Should prepare a view for home site")
@@ -25,6 +28,7 @@ class HomeControllerTest {
                 (MockMvcRequestBuilders.get("/"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("index"))
+                .andExpect(MockMvcResultMatchers.model().attribute("institutions", institutionRepository.findAll()))
                 .andDo(MockMvcResultHandlers.print());
     }
 }
