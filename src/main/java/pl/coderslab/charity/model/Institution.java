@@ -15,6 +15,4 @@ public class Institution extends EntityBasic{
 
     private String description;
 
-    @OneToMany(mappedBy = "institution")
-    private List<Donation> donationList;
 }

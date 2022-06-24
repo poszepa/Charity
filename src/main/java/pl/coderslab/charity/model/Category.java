@@ -12,6 +12,5 @@ public class Category extends EntityBasic{
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    private Donation donation;
+
 }

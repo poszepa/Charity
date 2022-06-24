@@ -1,6 +1,7 @@
 package pl.coderslab.charity.model;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.time.LocalDate;
@@ -12,11 +13,11 @@ public class Donation extends EntityBasic{
 
     private Integer quantity;
 
-    @OneToMany(mappedBy = "donation")
+    @ManyToMany
     private List<Category> categories;
 
-    @ManyToOne
-    private Institution institution;
+    @ManyToMany
+    private List<Institution> institution;
 
     private String street;
 
