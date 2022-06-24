@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public abstract class EntityBasic {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @CreationTimestamp
