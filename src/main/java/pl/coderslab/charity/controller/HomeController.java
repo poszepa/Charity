@@ -1,4 +1,4 @@
-package pl.coderslab.charity;
+package pl.coderslab.charity.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -33,5 +33,10 @@ public class HomeController {
     @ModelAttribute("quantity")
     public Integer quantityBags() {
         return donationRepository.sumQuantity();
+    }
+
+    @ModelAttribute("countDonation")
+    public Long countDonation() {
+        return donationRepository.countAllById();
     }
 }
