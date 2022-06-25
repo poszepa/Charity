@@ -9,10 +9,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import pl.coderslab.charity.controller.HomeController;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Home Controller specification")
 @WebMvcTest(HomeController.class)
