@@ -33,4 +33,20 @@ class DonationRepositoryTest {
         Truth.assertThat(sumQuantity).isEqualTo(30);
     }
 
+    @Test
+    @DisplayName("Should count every donation")
+    public void countDonation_success(){
+        //GIVEN
+        Donation donation1 = Donation.builder().quantity(10).build();
+        entityManager.persist(donation1);
+        Donation donation2 = Donation.builder().quantity(20).build();
+        entityManager.persist(donation2);
+
+        //ACT
+        Long countDonation = donationRepository.countAllById();
+
+        //ASSERT
+        Truth.assertThat(countDonation).isEqualTo(2);
+    }
+
 }
