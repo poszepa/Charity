@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
+import pl.coderslab.charity.service.DonationService;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class HomeController {
 
     private final InstitutionRepository institutionRepository;
     private final DonationRepository donationRepository;
+    private final DonationService donationService;
 
     @RequestMapping("/")
     public String homeAction(Model model){
@@ -32,7 +34,7 @@ public class HomeController {
 
     @ModelAttribute("quantity")
     public Integer quantityBags() {
-        return donationRepository.sumQuantity();
+        return donationService.sumQuantityOfBags();
     }
 
     @ModelAttribute("countDonation")
