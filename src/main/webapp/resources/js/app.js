@@ -174,6 +174,66 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+  let listOfCategory = document.querySelectorAll(".categoryForm");
+  let listOfCheckedCategory = [];
+  listOfCategory.forEach(category => {
+    if(category.checked) {
+      listOfCheckedCategory.push(category);
+    }
+  });
+  let displayCategory = "";
+  listOfCheckedCategory.forEach(category => {
+    displayCategory += category.value + " ";
+  })
+
+  let quantityAndCategory = document.querySelector(".qunatity-things");
+  let quantityFromForm = document.getElementById("quantity").value;
+  if(quantityFromForm >= 2) {
+    quantityAndCategory.innerText = quantityFromForm + " worki " + displayCategory;
+  }else{
+    quantityAndCategory.innerText = quantityFromForm + " worek " + displayCategory;
+  }
+
+
+
+  let institutionValue;
+  let institutions = document.getElementsByName("organization");
+  for(institution of institutions) {
+    if(institution.checked) {
+      institutionValue = institution.value;
+    }
+  }
+
+  document.querySelector(".institutitonDonation").innerText =" Dla fundacji" + institutionValue;
+
+
+
+
+  let streetAdress = document.querySelector(".street-address");
+  streetAdress.innerText = document.getElementById("street").value;
+
+  let cityAdress = document.querySelector(".city-address");
+  cityAdress.innerText = document.getElementById("city").value;
+
+  let zipCOde = document.querySelector(".city-zipCode");
+  zipCOde.innerText = document.getElementById("zipCode").value;
+
+  let phoneNumber = document.querySelector(".phoneNumber");
+  phoneNumber.innerText = document.getElementById("phoneNumber").value;
+
+  let donationDate = document.querySelector(".orderDate");
+  donationDate.innerText = document.getElementById("date").value;
+
+  let donationTime = document.querySelector(".orderTime");
+  donationTime.innerText = document.getElementById("time").value;
+
+  let donationDescription = document.querySelector(".orderDescription");
+  donationDescription.innerText = document.getElementById("pickUpComment").value;
+
+
+
+
+
 
 
 
