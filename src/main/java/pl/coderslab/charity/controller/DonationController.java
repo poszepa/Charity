@@ -37,7 +37,12 @@ public class DonationController {
             return "form";
         }
         donationRepository.save(donation);
-        return "redirect:/";
+        return "redirect:/donation/complete";
+    }
+
+    @GetMapping("/donation/complete")
+    public String donationFormComplete() {
+        return "form-confirmation";
     }
 
     @ModelAttribute("listOfCategory")
