@@ -173,15 +173,12 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-function listInstitution() {
-  fetch("http://localhost:8080/institution/getList", {
-    method: 'GET',
-  })
-      .then( resp => {
-    return resp.json();
-  }).then(obj => {
-    return console.log(obj);
-})};
+
+
+
+
+
+
 
 
 
