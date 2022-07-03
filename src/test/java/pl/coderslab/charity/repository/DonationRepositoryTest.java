@@ -34,6 +34,20 @@ class DonationRepositoryTest {
     }
 
     @Test
+    @DisplayName("Should return null from sum qunatity of Bags every donation when any donation wasn't save")
+    public void sumQuantityBagsReturnNull_failed() {
+        //GIVEN
+
+        //ACT
+        Integer sumQuantity = donationRepository.sumQuantity();
+
+        //ASSERT
+        Truth.assertThat(sumQuantity).isEqualTo(null);
+    }
+
+
+
+    @Test
     @DisplayName("Should count every donation")
     public void countDonation_success(){
         //GIVEN
@@ -48,5 +62,7 @@ class DonationRepositoryTest {
         //ASSERT
         Truth.assertThat(countDonation).isEqualTo(2);
     }
+
+
 
 }
