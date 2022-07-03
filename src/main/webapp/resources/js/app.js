@@ -164,6 +164,67 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+
+      let listOfCategory = document.querySelectorAll(".categoryForm");
+      let listOfCheckedCategory = [];
+      listOfCategory.forEach(category => {
+        if(category.checked) {
+          listOfCheckedCategory.push(category);
+        }
+      });
+      let displayCategory = "";
+      listOfCheckedCategory.forEach(category => {
+        displayCategory += category.value + " ";
+      })
+
+      let quantityAndCategory = document.querySelector(".qunatity-things");
+      let quantityFromForm = document.getElementById("quantity").value;
+      if(quantityFromForm >= 2) {
+        quantityAndCategory.innerText = quantityFromForm + " worki " + displayCategory;
+      }else{
+        quantityAndCategory.innerText = quantityFromForm + " worek " + displayCategory;
+      }
+
+
+
+      //here need to correct institution
+
+      //
+      // let institutionValue;
+      // let institutions = document.getElementsByName("institution");
+      // for(institution of institutions) {
+      //   if(institution.checked) {
+      //     console.log(institution)
+      //     institutionValue = document.getElementById("institutionName" + institution.value).value;
+      //     console.log(institutionValue)
+      //   }
+      // }
+      // document.querySelector(".institutitonDonation").innerText =" Dla fundacji" + institutionValue;
+
+
+
+
+      let streetAdress = document.querySelector(".street-address");
+      streetAdress.innerText = document.getElementById("street").value;
+
+      let cityAdress = document.querySelector(".city-address");
+      cityAdress.innerText = document.getElementById("city").value;
+
+      let zipCOde = document.querySelector(".city-zipCode");
+      zipCOde.innerText = document.getElementById("zipCode").value;
+
+      let phoneNumber = document.querySelector(".phoneNumber");
+      phoneNumber.innerText = document.getElementById("phoneNumber").value;
+
+      let donationDate = document.querySelector(".orderDate");
+      donationDate.innerText = document.getElementById("date").value;
+
+      let donationTime = document.querySelector(".orderTime");
+      donationTime.innerText = document.getElementById("time").value;
+
+      let donationDescription = document.querySelector(".orderDescription");
+      donationDescription.innerText = document.getElementById("pickUpComment").value;
+
     }
 
   }
@@ -174,61 +235,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-  let listOfCategory = document.querySelectorAll(".categoryForm");
-  let listOfCheckedCategory = [];
-  listOfCategory.forEach(category => {
-    if(category.checked) {
-      listOfCheckedCategory.push(category);
-    }
-  });
-  let displayCategory = "";
-  listOfCheckedCategory.forEach(category => {
-    displayCategory += category.value + " ";
-  })
 
-  let quantityAndCategory = document.querySelector(".qunatity-things");
-  let quantityFromForm = document.getElementById("quantity").value;
-  if(quantityFromForm >= 2) {
-    quantityAndCategory.innerText = quantityFromForm + " worki " + displayCategory;
-  }else{
-    quantityAndCategory.innerText = quantityFromForm + " worek " + displayCategory;
-  }
-
-
-
-  let institutionValue;
-  let institutions = document.getElementsByName("organization");
-  for(institution of institutions) {
-    if(institution.checked) {
-      institutionValue = institution.value;
-    }
-  }
-
-  document.querySelector(".institutitonDonation").innerText =" Dla fundacji" + institutionValue;
-
-
-
-
-  let streetAdress = document.querySelector(".street-address");
-  streetAdress.innerText = document.getElementById("street").value;
-
-  let cityAdress = document.querySelector(".city-address");
-  cityAdress.innerText = document.getElementById("city").value;
-
-  let zipCOde = document.querySelector(".city-zipCode");
-  zipCOde.innerText = document.getElementById("zipCode").value;
-
-  let phoneNumber = document.querySelector(".phoneNumber");
-  phoneNumber.innerText = document.getElementById("phoneNumber").value;
-
-  let donationDate = document.querySelector(".orderDate");
-  donationDate.innerText = document.getElementById("date").value;
-
-  let donationTime = document.querySelector(".orderTime");
-  donationTime.innerText = document.getElementById("time").value;
-
-  let donationDescription = document.querySelector(".orderDescription");
-  donationDescription.innerText = document.getElementById("pickUpComment").value;
 
 
 
