@@ -93,14 +93,14 @@
             <h3>Zaznacz co chcesz oddać:</h3>
             <div class="itemToGive">
 <c:forEach items="${listOfCategory}" var="category">
-  <form:hidden path="categories" value="${category.id}"/>
               <div class="form-group form-group--checkbox">
                 <label>
+                  <input type="hidden" value="${category.name}" class="descriptionName">
                   <input
                     class="categoryForm"
                     type="checkbox"
                     name="categories"
-                    value="${category.name}"
+                    value="${category.id}"
                   />
                   <span class="checkbox"></span>
                   <span class="description"
@@ -140,13 +140,12 @@
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
             <c:forEach items="${listOfInstitution}" var="institution">
-
             <div class="form-group form-group--checkbox">
               <label>
-                <input type="radio" name="organization" value="${institution.id}" />
+                <input type="hidden" name="institutionName" value="${institution.name}" id="institutionName${institution.id}">
+                <input type="radio" name="institution" value="${institution.id}" />
                 <span class="checkbox radio"></span>
                 <span class="description">
-                  <form:hidden path="institution" value="${institution.id}"/>
                   <div class="title">${institution.name}</div>
                   <div class="subtitle">
                       ${institution.description}
