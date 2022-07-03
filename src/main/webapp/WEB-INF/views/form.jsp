@@ -87,7 +87,7 @@
       <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form action="form-confirmation" method="post" modelAttribute="donation">
+        <form:form action="donation" method="post" modelAttribute="donation">
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
@@ -97,9 +97,10 @@
               <div class="form-group form-group--checkbox">
                 <label>
                   <input
+                    class="categoryForm"
                     type="checkbox"
                     name="categories"
-                    value="${category.id}"
+                    value="${category.name}"
                   />
                   <span class="checkbox"></span>
                   <span class="description"
@@ -121,7 +122,7 @@
             <div class="form-group form-group--inline">
               <label>
                 Liczba 60l worków:
-                <form:input path="quantity" step="1" min="1"/>
+                <form:input path="quantity" id="quantity" step="1" min="1"/>
                 <form:errors path="quantity"/>
               </label>
             </div>
@@ -170,12 +171,12 @@
               <div class="form-section--column">
                 <h4>Adres odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Ulica <form:input path="street"/> </label>
+                  <label> Ulica <form:input path="street" id="street"/> </label>
                   <form:errors path="street"/>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Miasto <form:input path="city"/> </label>
+                  <label> Miasto <form:input path="city" id="city"/> </label>
                   <form:errors path="city"/>
                 </div>
 
@@ -188,7 +189,7 @@
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Numer telefonu <form:input path="phoneNumber"/>
+                    Numer telefonu <form:input path="phoneNumber" id="phoneNumber"/>
                     <form:errors path="phoneNumber"/>
                   </label>
                 </div>
@@ -197,19 +198,19 @@
               <div class="form-section--column">
                 <h4>Termin odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Data <form:input path="pickUpDate" type="date"/> </label>
+                  <label> Data <form:input path="pickUpDate" type="date" id="date"/> </label>
                   <form:errors path="pickUpDate"/>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Godzina <form:input path="pickUpTime" type="time"/> </label>
+                  <label> Godzina <form:input path="pickUpTime" type="time" id="time"/> </label>
                   <form:errors path="pickUpTime"/>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
                     Uwagi dla kuriera
-                    <form:textarea path="pickUpComment"/>
+                    <form:textarea path="pickUpComment" id="pickUpComment"/>
                     <form:errors path="pickUpComment"/>
                   </label>
                 </div>
@@ -231,14 +232,14 @@
                 <ul>
                   <li>
                     <span class="icon icon-bag"></span>
-                    <span class="summary--text"
+                    <span class="summary--text qunatity-things"
                       >4 worki ubrań w dobrym stanie dla dzieci</span
                     >
                   </li>
 
                   <li>
                     <span class="icon icon-hand"></span>
-                    <span class="summary--text"
+                    <span class="summary--text institutitonDonation"
                       >Dla fundacji "Mam marzenie" w Warszawie</span
                     >
                   </li>
@@ -249,19 +250,19 @@
                 <div class="form-section--column">
                   <h4>Adres odbioru:</h4>
                   <ul>
-                    <li>Prosta 51</li>
-                    <li>Warszawa</li>
-                    <li>99-098</li>
-                    <li>123 456 789</li>
+                    <li class="street-address">Prosta 51</li>
+                    <li class="city-address">Warszawa</li>
+                    <li class="city-zipCode">99-098</li>
+                    <li class="phoneNumber">123 456 789</li>
                   </ul>
                 </div>
 
                 <div class="form-section--column">
                   <h4>Termin odbioru:</h4>
                   <ul>
-                    <li>13/12/2018</li>
-                    <li>15:40</li>
-                    <li>Brak uwag</li>
+                    <li class="orderDate">13/12/2018</li>
+                    <li class="orderTime">15:40</li>
+                    <li class="orderDescription">Brak uwag</li>
                   </ul>
                 </div>
               </div>
