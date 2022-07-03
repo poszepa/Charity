@@ -22,6 +22,7 @@ public abstract class EntityBasic {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     @CreationTimestamp
     private LocalDate createDate;
 
