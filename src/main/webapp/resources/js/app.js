@@ -165,41 +165,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // TODO: get data from inputs and show them in summary
 
-      let listOfCategory = document.querySelectorAll(".categoryForm");
-      let listOfCheckedCategory = [];
-      listOfCategory.forEach(category => {
-        if(category.checked) {
-          listOfCheckedCategory.push(category);
+      let listOfCategory = [];
+      let listOfDivWithCategory = document.querySelectorAll(".categoryCheckBox");
+      listOfDivWithCategory.forEach(category => {
+        let didCategoryChecked = category.querySelector(".categoryForm");
+        if(didCategoryChecked.checked) {
+          listOfCategory.push(category.querySelector(".description").innerText);
         }
-      });
-      let displayCategory = "";
-      listOfCheckedCategory.forEach(category => {
-        displayCategory += category.value + " ";
       })
+      let listOfCategoryString = "";
+      listOfCategory.forEach(category => {
+        listOfCategoryString += category +", ";
+      })
+
+
+
 
       let quantityAndCategory = document.querySelector(".qunatity-things");
       let quantityFromForm = document.getElementById("quantity").value;
       if(quantityFromForm >= 2) {
-        quantityAndCategory.innerText = quantityFromForm + " worki " + displayCategory;
+        quantityAndCategory.innerText = quantityFromForm + " worki " + listOfCategoryString;
       }else{
-        quantityAndCategory.innerText = quantityFromForm + " worek " + displayCategory;
+        quantityAndCategory.innerText = quantityFromForm + " worek " + listOfCategoryString;
       }
-
-
-
-      //here need to correct institution
-
-      //
-      // let institutionValue;
-      // let institutions = document.getElementsByName("institution");
-      // for(institution of institutions) {
-      //   if(institution.checked) {
-      //     console.log(institution)
-      //     institutionValue = document.getElementById("institutionName" + institution.value).value;
-      //     console.log(institutionValue)
-      //   }
-      // }
-      // document.querySelector(".institutitonDonation").innerText =" Dla fundacji" + institutionValue;
 
 
 
@@ -233,6 +221,7 @@ document.addEventListener("DOMContentLoaded", function() {
     new FormSteps(form);
   }
 });
+
 
 
 
