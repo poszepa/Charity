@@ -178,7 +178,14 @@ document.addEventListener("DOMContentLoaded", function() {
         listOfCategoryString += category +", ";
       })
 
-
+      let institutionInnerText = "";
+      let listOfRadiobutton = document.querySelectorAll(".radioButtonInstitution");
+      listOfRadiobutton.forEach(institution => {
+        let institutionIsChecked = institution.querySelector("input[name='institution']");
+        if(institutionIsChecked.checked) {
+          institutionInnerText = institution.querySelector(".title").innerText;
+        }
+      })
 
 
       let quantityAndCategory = document.querySelector(".qunatity-things");
@@ -213,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let donationDescription = document.querySelector(".orderDescription");
       donationDescription.innerText = document.getElementById("pickUpComment").value;
 
+      document.querySelector(".institutitonDonation").innerText = institutionInnerText;
     }
 
   }

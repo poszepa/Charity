@@ -141,7 +141,6 @@
             <c:forEach items="${listOfInstitution}" var="institution">
             <div class="form-group form-group--checkbox radioButtonInstitution">
               <label>
-                <input type="hidden" name="institutionName" value="${institution.name}" id="institutionName${institution.id}">
                 <input type="radio" name="institution" value="${institution.id}" />
                 <span class="checkbox radio"></span>
                 <span class="description">
