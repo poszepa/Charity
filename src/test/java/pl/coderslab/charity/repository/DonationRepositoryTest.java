@@ -6,9 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Donation;
+import pl.coderslab.charity.model.Institution;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
 
 @DisplayName("Donation repository specification")
 @DataJpaTest
@@ -21,16 +24,36 @@ class DonationRepositoryTest {
     @DisplayName("Should sum qunatity of Bags every donation")
     public void sumQuantityBags_success() {
         //GIVEN
-        Donation donation1 = Donation.builder().quantity(10).build();
+        Institution institution = Institution.builder().name("test").description("test").build();
+        entityManager.persist(institution);
+        Category category = Category.builder().name("testCategory").build();
+        entityManager.persist(category);
+        Donation donation1 = Donation.builder()
+                .quantity(10)
+                .institution(List.of(institution))
+                .categories(List.of(category))
+                .city("test")
+                .phoneNumber(602111111)
+                .street("test")
+                .zipCode("62123")
+                .build();
+        Donation donation2 = Donation.builder()
+                .quantity(10)
+                .institution(List.of(institution))
+                .categories(List.of(category))
+                .city("test")
+                .phoneNumber(602111111)
+                .street("test")
+                .zipCode("62123")
+                .build();
         entityManager.persist(donation1);
-        Donation donation2 = Donation.builder().quantity(20).build();
         entityManager.persist(donation2);
 
         //ACT
         Integer sumQuantity = donationRepository.sumQuantity();
 
         //ASSERT
-        Truth.assertThat(sumQuantity).isEqualTo(30);
+        Truth.assertThat(sumQuantity).isEqualTo(20);
     }
 
     @Test
@@ -51,9 +74,29 @@ class DonationRepositoryTest {
     @DisplayName("Should count every donation")
     public void countDonation_success(){
         //GIVEN
-        Donation donation1 = Donation.builder().quantity(10).build();
+        Institution institution = Institution.builder().name("test").description("test").build();
+        entityManager.persist(institution);
+        Category category = Category.builder().name("testCategory").build();
+        entityManager.persist(category);
+        Donation donation1 = Donation.builder()
+                .quantity(10)
+                .institution(List.of(institution))
+                .categories(List.of(category))
+                .city("test")
+                .phoneNumber(602111111)
+                .street("test")
+                .zipCode("62123")
+                .build();
+        Donation donation2 = Donation.builder()
+                .quantity(10)
+                .institution(List.of(institution))
+                .categories(List.of(category))
+                .city("test")
+                .phoneNumber(602111111)
+                .street("test")
+                .zipCode("62123")
+                .build();
         entityManager.persist(donation1);
-        Donation donation2 = Donation.builder().quantity(20).build();
         entityManager.persist(donation2);
 
         //ACT

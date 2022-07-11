@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import pl.coderslab.charity.controller.HomeController;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
+import pl.coderslab.charity.service.DonationService;
 
 @DisplayName("Home Controller specification")
 @WebMvcTest(HomeController.class)
@@ -21,6 +22,7 @@ class HomeControllerTest {
     @Autowired private MockMvc mockMvc;
     @MockBean private InstitutionRepository institutionRepository;
     @MockBean private DonationRepository donationRepository;
+    @MockBean private DonationService donationService;
 
     @Test
     @DisplayName("Should prepare a view for home site")

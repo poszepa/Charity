@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import pl.coderslab.charity.repository.CategoryRepository;
+import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,6 +22,7 @@ class DonationControllerTest {
     @Autowired private MockMvc mockMvc;
     @MockBean private CategoryRepository categoryRepository;
     @MockBean private InstitutionRepository institutionRepository;
+    @MockBean private DonationRepository donationRepository;
 
     @Test
     @DisplayName("Should prepare a donation Form")
