@@ -5,6 +5,16 @@
 
 <jsp:include page="static/header.jsp"/>
 
+<div class="slogan container container--90">
+  <div class="slogan--item">
+    <h1>
+      Zacznij pomagać!<br />
+      Oddaj niechciane rzeczy w zaufane ręce
+    </h1>
+  </div>
+</div>
+</header>
+
     <section id="stats" class="stats">
       <div class="container container--85">
         <div class="stats--item">
@@ -48,7 +58,7 @@
         </div>
       </div>
 
-      <a href="#" class="btn btn--large">Załóż konto</a>
+      <a href="/register" class="btn btn--large">Załóż konto</a>
     </section>
 
     <section id="about-us" class="about-us">
